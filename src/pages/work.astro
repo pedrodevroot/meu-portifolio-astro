@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import ContactCTA from "../components/ContactCTA.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projects = (await getCollection("work")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Meu Trabalho | Pedro Lucas"
+  description="Conheca mais sobre os projetos mais recentes de Pedro Lucas"
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="Meu Trabalho"
+        tagline="Veja mais sobre meus projetos recentes, para ter uma ideia da minha experiencia."
+        align="start"
+      />
+      <Grid variant="offset">
+        {
+          projects.map((project) => (
+            <li>
+              <PortfolioPreview project={project} />
+            </li>
+          ))
+        }
+      </Grid>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>

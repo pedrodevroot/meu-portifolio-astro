@@ -1,0 +1,57 @@
+---
+import Footer from "../components/Footer.astro";
+import MainHead from "../components/MainHead.astro";
+import Nav from "../components/Nav.astro";
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <MainHead title={title} description={description} />
+  </head>
+  <body>
+    <div class="stack backgrounds">
+      <Nav />
+      <slot />
+      <Footer />
+    </div>
+
+    <script>
+      addEventListener("load", () =>
+        document.documentElement.classList.add("loaded")
+      );
+    </script>
+
+    <style>
+      :root {
+        --bg-color-base: #ffffff;
+        --bg-color-content: #ffffff;
+      }
+
+      :root.theme-dark {
+        --bg-color-base: #0b0f0e;
+        --bg-color-content: #0b0f0e;
+      }
+
+      .backgrounds {
+        min-height: 100%;
+        isolation: isolate;
+        background-color: var(--bg-color-base);
+        color: var(--gray-200);
+        transition: background-color 0.3s ease;
+      }
+
+      @media (forced-colors: active) {
+        .backgrounds {
+          background: none;
+        }
+      }
+    </style>
+  </body>
+</html>

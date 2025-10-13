@@ -1,0 +1,138 @@
+---
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Sobre | Pedro Lucas"
+  description="Sobre Pedro Lucas — desenvolvedor apaixonado por tecnologia e segurança da informação"
+>
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <Hero
+        title="Sobre"
+        tagline="Obrigado por visitar meu portfólio! Abaixo, você pode conhecer um pouco mais sobre mim, minha trajetória e o que me motiva na tecnologia."
+      >
+        <img
+          width="1553"
+          height="873"
+          src="/assets/at-work.jpg"
+          alt="Pedro Lucas trabalhando"
+        />
+      </Hero>
+
+      <section>
+        <h2 class="section-title">Trajetória</h2>
+        <div class="content">
+          <p>
+            Sou apaixonado por tecnologia e atualmente curso <strong
+              >Desenvolvimento de Software Multiplataforma</strong
+            > na <strong>FATEC</strong>. Meu interesse por <strong
+              >back-end</strong
+            > e <strong>cibersegurança</strong> começou durante o curso técnico em
+            Desenvolvimento de Sistemas, onde aprendi a base da programação.
+          </p>
+          <p>
+            Desde então, venho aprimorando minhas habilidades com <strong
+              >Python</strong
+            >, <strong>Flask</strong>, <strong>JavaScript</strong>,
+            <strong>Git/GitHub</strong> e <strong>Linux</strong>, sempre
+            buscando entender como as aplicações funcionam por trás do código e
+            como mantê-las seguras e bem estruturadas.
+          </p>
+          <p>
+            Meu foco é evoluir na área de back-end, consolidando minha base em
+            desenvolvimento e, ao mesmo tempo, seguir o caminho da
+            cibersegurança — unindo <strong>performance</strong> e <strong
+              >proteção</strong
+            > em meus projetos.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Formação</h2>
+        <div class="content">
+          <p>
+            • Tecnólogo em Desenvolvimento de Software Multiplataforma — FATEC
+            (em andamento)
+          </p>
+          <p>• Técnico em Desenvolvimento de Sistemas — ETEC</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Habilidades</h2>
+        <div class="content">
+          <ul>
+            <li>Python</li>
+            <li>Git e GitHub</li>
+            <li>Linux e Shell</li>
+            <li>Fundamentos de Cibersegurança</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+
+  .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  .content {
+    grid-column: 2 / 4;
+  }
+
+  .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .content :global(a:hover),
+  .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+</style>
