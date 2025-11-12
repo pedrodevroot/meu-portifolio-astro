@@ -84,7 +84,10 @@ const projects = (await getCollection("work"))
   }
 
   .roles {
-    display: none;
+    display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
   }
 
   .hero img {
@@ -104,9 +107,9 @@ const projects = (await getCollection("work"))
     }
 
     .roles {
-      margin-top: 0.5rem;
-      display: flex;
-      gap: 0.5rem;
+      justify-content: flex-start; /* volta pro canto no desktop */
+    margin-top: 0.5rem;
+    gap: 0.5rem;
     }
 
     .hero img {
