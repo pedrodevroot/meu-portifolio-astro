@@ -21,12 +21,15 @@ const projects = (await getCollection("work"))
       <header class="hero">
         <Hero
           title="Olá, me chamo Pedro Lucas!"
-          tagline="Eu sou um desenvolvedor entusiasta backend, morando em Sao Paulo, Brazil."
+          tagline="Eu sou um desenvolvedor entusiasta backend, morando em Sao Paulo, Brasil."
           align="start"
         >
           <div class="roles">
-            <Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
+            <a href="/curriculo.pdf" download class="btn" style="text-decoration: none;">
+              📄 Baixar Currículo
+            </a>
           </div>
+
         </Hero>
 
         <img
